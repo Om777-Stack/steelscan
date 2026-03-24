@@ -1,1 +1,28 @@
+[server]
+maxUploadSize = 200
+```
 
+Click **Commit changes**
+
+---
+
+Then **replace requirements.txt** with this — it uses the official PyTorch CPU-only index which downloads a much smaller version (~200MB instead of 800MB):
+```
+streamlit>=1.32.0
+Pillow>=10.0.0
+numpy>=1.24.0
+opencv-python-headless>=4.9.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
+ultralytics>=8.1.0
+```
+
+---
+
+Also make sure `packages.txt` contains:
+```
+libgl1
+libglib2.0-0
+libsm6
+libxext6
