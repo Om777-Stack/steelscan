@@ -1,17 +1,2 @@
 [server]
-maxUploadSize = 200
-```
-
-Make sure there are **no backticks, no extra characters** — just those two plain lines.
-
-Click **Commit changes** → **Manage app** → **Reboot**
-
-Also check your `requirements.txt` — the `--extra-index-url` line sometimes causes issues with `uv` (the new pip Streamlit uses). Replace requirements.txt with:
-```
-streamlit>=1.32.0
-Pillow>=10.0.0
-numpy>=1.24.0
-opencv-python-headless>=4.9.0
-torch==2.1.0
-torchvision==0.16.0
-ultralytics>=8.1.0
+maxuploadsize = 200
