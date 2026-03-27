@@ -40,13 +40,21 @@ st.set_page_config(
 # ── Lazy imports ───────────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
 def load_model(model_name: str):
-    """Load YOLOv8 model once and cache it across sessions."""
     try:
         from ultralytics import YOLO
-        model = YOLO(model_name)
+        # For best.pt — look in repo root first
+        if model_name == "best.pt":
+            model_path = Path(__file__).parent / "best.pt"
+            if model_path.exists():
+                model = YOLO(str(model_path))
+            else:
+                st.error("best.pt not found in repo!")
+                return None, "best.pt missing"
+        else:
+            model = YOLO(model_name)
         return model, None
     except ImportError:
-        return None, "ultralytics not installed. Run: pip install ultralytics"
+        return None, "ultralytics not installed"
     except Exception as e:
         return None, str(e)
 
