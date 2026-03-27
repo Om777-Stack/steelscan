@@ -87,6 +87,7 @@ SEVERITY = {
 SEVERITY_COLOR = {"Low": "#4CAF50", "Medium": "#FF9800", "High": "#F44336"}
 
 MODEL_OPTIONS = {
+    "🔬 NEU Steel Model (Best Accuracy)": "best.pt",
     "YOLOv8-nano (Fastest, CPU-optimized)": "yolov8n.pt",
     "YOLOv8-small (Balanced)":              "yolov8s.pt",
 }
